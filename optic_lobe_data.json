@@ -1,0 +1,250 @@
+{
+  "meta": {
+    "dataset": "Janelia FlyEM optic-lobe:v1.1 (Nern et al. 2025, Nature)",
+    "sex": "male",
+    "side": "right optic lobe",
+    "n_neurons_in_OL": 52445,
+    "n_connections_in_OL": 6484936,
+    "edge_threshold_synapses": 5,
+    "filtration": "directed flag complex (Reimann et al. 2017), max-face filtration on synapse weight",
+    "phase_b_neurons_used": 13267,
+    "phase_b_columns_used": 892
+  },
+  "seung_form_circuit": {
+    "source": "Seung 2024 (Nature 634:113-123); predictions on form-vision Dm3 / TmY circuit",
+    "dm3_axis_mapping_note": "optic-lobe:v1.1 uses FlyWire-style Dm3a/Dm3b/Dm3c. Seung Extended Data Fig. 6 names the same orientation classes Dm3p / Dm3q / Dm3v on the hex p/q/v axes. Mapping: Dm3a↔Dm3p, Dm3b↔Dm3q, Dm3c↔Dm3v (alignment by population homology in our data).",
+    "tmy_axis_mapping_note": "Janelia (Nern 2025) splits Seung's TmY9q and TmY9q⊥ as TmY9a and TmY9b respectively. TmY4 is the horizontal axis in both.",
+    "dm3_matrix": {
+      "labels": ["Dm3a", "Dm3b", "Dm3c"],
+      "weights": [
+        [1602, 11871, 6996],
+        [8984, 2113, 7199],
+        [11376, 8506, 924]
+      ],
+      "same_per_pair": 1546.3,
+      "cross_per_pair": 9155.3,
+      "real_ratio": 0.169,
+      "null_mean_ratio": 0.997,
+      "null_std_ratio": 0.01357,
+      "z_score": -61.03,
+      "p_one_sided": 0.00498,
+      "prediction": "Seung 2024 Test 1: cross-orientation suppression — Dm3 of one orientation should avoid same-orientation Dm3 targets. Predicted same/cross ratio < 1."
+    },
+    "tmy_matrix": {
+      "labels": ["TmY4", "TmY9a", "TmY9b"],
+      "weights": [
+        [8168, 2506, 2408],
+        [1130, 7258, 7115],
+        [789,  569,  10826]
+      ],
+      "same_per_pair": 8750.7,
+      "cross_per_pair": 2419.5,
+      "real_ratio": 3.617,
+      "null_mean_ratio": 0.942,
+      "null_std_ratio": 0.0202,
+      "z_score": 132.47,
+      "p_one_sided": 0.00498,
+      "prediction": "Seung 2024 Test 2: iso-orientation excitation — TmY of one orientation should preferentially target same-orientation TmY. Predicted same/cross ratio > 1."
+    }
+  },
+  "braitenberg_L4": {
+    "source": "Braitenberg & Debbage 1974 (J. Comp. Physiol. 90:25-31); three L4 collaterals per cartridge form a complete reciprocal K_3 motif along the −z, +y, −x axes (Strausfeld & Campos-Ortega 1973).",
+    "n_L4_cells": 891,
+    "n_cartridges_predicted": 892,
+    "n_undirected_triangles_real": 726,
+    "n_undirected_triangles_predicted": 892,
+    "recovery_rate_undirected_triangles": 0.814,
+    "n_directed_triangles_real": 2229,
+    "n_directed_triangles_predicted": 5352,
+    "recovery_rate_directed_triangles": 0.416,
+    "n_complete_reciprocal_K3_real": 169,
+    "n_complete_reciprocal_K3_predicted": 892,
+    "z_score_vs_null": 98.14,
+    "null_mean_triangles": 49.46,
+    "null_std_triangles": 6.89,
+    "K_nulls": 50,
+    "per_cartridge": {
+      "n_with_L4_assignment": 514,
+      "n_with_>=3_L4_assignment": 47,
+      "n_with_triangle": 34,
+      "n_with_reciprocal_triangle": 6,
+      "n_with_complete_directed_K3": 6,
+      "fraction_with_triangle_among_>=3_L4": 0.723
+    }
+  },
+  "matsliah_clusters": {
+    "source": "Matsliah et al. 2024 (Nature 634:166-180); 16 functional clusters labelled C01-C16 in 25 type families. Numbering follows Matsliah Extended Data Fig. 11a.",
+    "cluster_labels": {
+      "C01_colour_main": "Color-C1 (main colour)",
+      "C02_form": "Form-C2 (Dm3 form circuit)",
+      "C04_colour_inner_photo": "Color-C4 (inner-photoreceptor recipients)",
+      "C05_polarization": "Polarization-C5 (DmDRA1, DmDRA2)",
+      "C07_luminance": "Luminance-C7",
+      "C08_centrifugal_feedback": "Centrifugal-C8 (Lai, Lawf1)",
+      "C09_object": "Object-C9 (T2/T3/Y3 + TmY3)",
+      "C10_OFF": "OFF-C10 (L2/L4/Tm1/Tm2/Tm4)",
+      "C11_ON": "ON-C11 (L1/L5/Mi1/Tm3/C2/C3)",
+      "C12_object_small": "Object-small-C12 (Li19, Li25)",
+      "C15_motion_T4T5": "Motion-C15 (T4a-d, T5a-d)",
+      "C16_motion_CT1": "Motion-CT1-C16 (CT1 + Tm9 + Li14)"
+    },
+    "correction_note": "Per Matsliah Ext Fig 11a, DmDRA2 belongs in C05 Polarization-C5 (alongside DmDRA1). C04 contains the inner-photoreceptor-recipient colour cells Dm8a/Dm8b/Dm11.",
+    "per_cluster": {
+      "C01_colour_main": {"types": ["Tm5a","Tm5b","Tm5c","Tm20","Tm16","Tm31","Tm32","Tm33","Tm34","Tm35","Tm36","Tm37","Mi4","Mi10"], "n_cells": 3856, "n_directed_edges": 61471, "betti_undirected": [1,682,6951], "betti_directed": [1,1035,15352], "edge_density": 0.0133, "spectral_gap_real": 0.0210, "spectral_gap_null_mean": 0.6129, "spectral_gap_null_std": 0.00482, "spectral_gap_z": -122.82, "n_reciprocal_pairs": 12010, "n_directed_3cycles": 51713, "beta1_null_mean": 43195.5, "beta1_null_std": 132.7, "beta1_z": -320.3, "beta2_null_mean": 10.0, "beta2_null_std": 6.24, "beta2_z": 1111.4},
+      "C02_form":        {"types": ["Dm3a","Dm3b","Dm3c"], "n_cells": 1573, "n_directed_edges": 36815, "betti_undirected": [1,397,10651], "betti_directed": [1,564,20107], "edge_density": 0.0500, "spectral_gap_real": 0.0470, "spectral_gap_null_mean": 0.7533, "spectral_gap_null_std": 0.00233, "spectral_gap_z": -302.57, "n_reciprocal_pairs": 5902, "n_directed_3cycles": 34547, "beta1_null_mean": 16983.2, "beta1_null_std": 132.97, "beta1_z": -124.73, "beta2_null_mean": 0.53, "beta2_null_std": 0.74, "beta2_z": 14330.1},
+      "C04_colour_inner_photo": {"types": ["Dm8a","Dm8b","Dm11"], "n_cells": 632, "n_directed_edges": 1756, "betti_undirected": [7,406,1], "betti_directed": [7,530,59], "edge_density": 0.0155, "spectral_gap_real": 1.55e-15, "spectral_gap_null_mean": 0.3322, "spectral_gap_null_std": 0.0317, "spectral_gap_z": -10.48, "n_reciprocal_pairs": 215, "n_directed_3cycles": 214, "beta1_null_mean": 1077.1, "beta1_null_std": 8.66, "beta1_z": -77.53, "beta2_null_mean": 0.0, "beta2_null_std": 0.0, "beta2_z": null},
+      "C07_luminance":   {"types": ["L3","Dm4","Dm9","Dm12","Dm20","Mi9","Mi15","Dm2","Dm10"], "n_cells": 3768, "n_directed_edges": 66340, "betti_undirected": [1,144,3410], "betti_directed": [1,220,9019], "edge_density": 0.0147, "spectral_gap_real": 0.0233, "spectral_gap_null_mean": 0.5417, "spectral_gap_null_std": 0.0532, "spectral_gap_z": -9.75, "n_reciprocal_pairs": 14091, "n_directed_3cycles": 82266, "beta1_null_mean": 22575.1, "beta1_null_std": 156.0, "beta1_z": -143.78, "beta2_null_mean": 4659.0, "beta2_null_std": 187.15, "beta2_z": -6.67},
+      "C08_centrifugal_feedback": {"types": ["Lai","Lawf1"], "n_cells": 232, "n_directed_edges": 845, "betti_undirected": [22,121,4], "betti_directed": [22,175,102], "edge_density": 0.0464, "spectral_gap_real": -2.89e-15, "spectral_gap_null_mean": 0.4518, "spectral_gap_null_std": 0.0552, "spectral_gap_z": -8.18, "n_reciprocal_pairs": 223, "n_directed_3cycles": 239, "beta1_null_mean": 517.1, "beta1_null_std": 7.85, "beta1_z": -50.43, "beta2_null_mean": 0.0, "beta2_null_std": 0.0, "beta2_z": null},
+      "C09_object":      {"types": ["T2","T3","T2a","TmY3","Y3"], "n_cells": 3468, "n_directed_edges": 30272, "betti_undirected": [1,1244,525], "betti_directed": [1,1770,3344], "edge_density": 0.00798, "spectral_gap_real": 0.00664, "spectral_gap_null_mean": 0.5321, "spectral_gap_null_std": 0.0241, "spectral_gap_z": -21.77, "n_reciprocal_pairs": 6299, "n_directed_3cycles": 16256, "beta1_null_mean": 25125.7, "beta1_null_std": 34.1, "beta1_z": -699.4, "beta2_null_mean": 0.0, "beta2_null_std": 0.0, "beta2_z": null},
+      "C10_OFF":         {"types": ["L2","L4","Tm1","Tm2","Tm4"], "n_cells": 4390, "n_directed_edges": 41376, "betti_undirected": [1,49,157], "betti_directed": [1,54,471], "edge_density": 0.00688, "spectral_gap_real": 0.00430, "spectral_gap_null_mean": 0.3947, "spectral_gap_null_std": 0.0132, "spectral_gap_z": -29.51, "n_reciprocal_pairs": 8218, "n_directed_3cycles": 16880, "beta1_null_mean": 35080.1, "beta1_null_std": 34.97, "beta1_z": -1001.62, "beta2_null_mean": 0.0, "beta2_null_std": 0.0, "beta2_z": null},
+      "C11_ON":          {"types": ["L1","L5","Mi1","Tm3","C2","C3"], "n_cells": 5480, "n_directed_edges": 77000, "betti_undirected": [1,1027,800], "betti_directed": [1,1066,3114], "edge_density": 0.00739, "spectral_gap_real": 0.00303, "spectral_gap_null_mean": 0.4939, "spectral_gap_null_std": 0.0235, "spectral_gap_z": -20.89, "n_reciprocal_pairs": 21538, "n_directed_3cycles": 101859, "beta1_null_mean": 65274.8, "beta1_null_std": 94.95, "beta1_z": -676.68, "beta2_null_mean": 0.0, "beta2_null_std": 0.0, "beta2_z": null},
+      "C12_object_small": {"types": ["Li19","Li25"], "n_cells": 86, "n_directed_edges": 377, "betti_undirected": [1,38,4], "betti_directed": [1,57,51], "edge_density": 0.1642, "spectral_gap_real": null, "spectral_gap_null_mean": null, "spectral_gap_null_std": null, "spectral_gap_z": null, "n_reciprocal_pairs": null, "n_directed_3cycles": null, "beta1_null_mean": null, "beta1_null_std": null, "beta1_z": null, "beta2_null_mean": null, "beta2_null_std": null, "beta2_z": null},
+      "C15_motion_T4T5": {"types": ["T4a","T4b","T4c","T4d","T5a","T5b","T5c","T5d"], "n_cells": 6793, "n_directed_edges": 104269, "betti_undirected": [1,2160,5121], "betti_directed": [1,2936,17226], "edge_density": 0.00694, "spectral_gap_real": 0.00921, "spectral_gap_null_mean": 0.6721, "spectral_gap_null_std": 0.00142, "spectral_gap_z": -466.33, "n_reciprocal_pairs": 24186, "n_directed_3cycles": 97581, "beta1_null_mean": 92098.3, "beta1_null_std": 58.45, "beta1_z": -1538.67, "beta2_null_mean": 0.0, "beta2_null_std": 0.0, "beta2_z": null},
+      "C16_motion_CT1":  {"types": ["CT1","Tm9","Li14"], "n_cells": 1000, "n_directed_edges": 1897, "betti_undirected": [47,2,0], "betti_directed": [47,803,22], "edge_density": 0.00402, "spectral_gap_real": null, "spectral_gap_null_mean": null, "spectral_gap_null_std": null, "spectral_gap_z": null, "n_reciprocal_pairs": 893, "n_directed_3cycles": 54, "beta1_null_mean": null, "beta1_null_std": null, "beta1_z": null, "beta2_null_mean": null, "beta2_null_std": null, "beta2_z": null}
+    },
+    "ari_recovery": {
+      "real_ari": 0.368,
+      "null_mean_ari": 0.00105,
+      "null_std_ari": 0.01969,
+      "z_score": 18.63,
+      "p_value": 0.001,
+      "K_bootstraps": 1000,
+      "comment": "Connectivity-clustering recovers Matsliah's 16 functional cluster labels on a 60-type subset at ARI 0.368, well above shuffled-label baseline (0.001 ± 0.02)."
+    }
+  },
+  "motifs_top_per_cluster": {
+    "C01_colour_main": {"top_reciprocal": [["Tm20","Tm20",1682],["Tm20","Tm32",1654],["Mi10","Mi10",658],["Tm37","Tm5c",628],["Tm16","Tm5c",608]], "top_3cycles": [["Tm32","Tm20","Tm20",2033],["Tm32","Tm20","Tm33",811],["Tm16","Tm5c","Mi4",420],["Tm20","Tm20","Tm20",322]]},
+    "C02_form": {"top_reciprocal": [["Dm3a","Dm3b",2014],["Dm3a","Dm3c",1919],["Dm3b","Dm3c",1494],["Dm3b","Dm3b",216],["Dm3a","Dm3a",156],["Dm3c","Dm3c",103]], "top_3cycles": [["Dm3c","Dm3b","Dm3a",1545],["Dm3b","Dm3a","Dm3c",1293],["Dm3c","Dm3a","Dm3b",962]]},
+    "C04_colour_inner_photo": {"top_reciprocal": [["Dm8a","Dm8b",85],["Dm8b","Dm8b",54],["Dm8a","Dm8a",40],["Dm11","Dm8b",24]], "top_3cycles": [["Dm8b","Dm8b","Dm8b",31],["Dm8a","Dm8b","Dm8b",28]]},
+    "C07_luminance": {"top_reciprocal": [["Dm12","L3",3710],["Dm10","Dm20",1712],["Dm10","Dm2",1467],["Dm2","Dm2",1076],["Mi15","Mi15",617]], "top_3cycles": [["Dm20","Dm12","L3",2536],["Dm20","Dm10","L3",2052],["Dm20","Dm12","Dm10",694]]},
+    "C08_centrifugal_feedback": {"top_reciprocal": [["Lawf1","Lawf1",218],["Lai","Lai",5]], "top_3cycles": [["Lawf1","Lawf1","Lawf1",239]]},
+    "C09_object": {"top_reciprocal": [["T2","T2",3252],["T2a","T2a",982],["T2a","Y3",392],["T2","T3",331],["T2a","T3",327]], "top_3cycles": [["T2","T2","T2",6165],["Y3","T2a","T3",647],["TmY3","T2","T2",530]]},
+    "C10_OFF": {"top_reciprocal": [["L2","L4",1950],["Tm4","Tm4",1579],["L4","L4",903],["Tm1","Tm2",829],["L2","Tm1",674]], "top_3cycles": [["Tm4","Tm4","Tm4",1721],["L2","L4","L4",1647],["L2","L4","Tm2",969]]},
+    "C11_ON": {"top_reciprocal": [["L1","Tm3",4139],["Tm3","Tm3",3863],["Mi1","Tm3",2991],["L5","L5",1249],["L1","L5",1091]], "top_3cycles": [["Mi1","Tm3","Tm3",1918],["L1","Tm3","Tm3",1531],["Tm3","Tm3","Tm3",1257]]},
+    "C15_motion_T4T5": {"top_reciprocal": [["T5b","T5b",2679],["T4b","T4b",2653],["T4b","T5b",2159],["T5a","T5a",1971],["T4d","T4d",1818]], "top_3cycles": [["T5b","T5b","T5b",1031],["T4b","T4b","T4b",751],["T5d","T5d","T5d",586]]},
+    "C16_motion_CT1": {"top_reciprocal": [["CT1","Tm9",875],["Li14","Li14",9],["Tm9","Tm9",9]], "top_3cycles": [["CT1","Tm9","Tm9",54]]}
+  },
+  "cluster_metagraph": {
+    "cluster_order": ["C01_colour_main","C02_form","C04_colour_inner_photo","C05_polarization","C07_luminance","C08_centrifugal_feedback","C09_object","C10_OFF","C11_ON","C12_object_small","C15_motion_T4T5","C16_motion_CT1"],
+    "matrix": [
+      [246610,29863,4399,0,135492,41325,82063,36176,10916,8398,58378,52809],
+      [10505,59571,21,0,5481,155,2491,9310,606,0,0,616],
+      [22434,289,2295,0,35233,198,341,312,681,0,0,33],
+      [0,0,0,0,0,0,0,0,0,0,0,0],
+      [237072,28743,7288,0,350464,48174,63066,55956,53447,0,98210,38061],
+      [1877,28,21,0,6081,1132,1138,1817,9032,0,0,44],
+      [47315,14170,92,0,3048,119,84057,6116,33929,80331,3771,17249],
+      [38167,87117,554,0,49171,2234,346700,447106,118001,1672,296447,18866],
+      [90631,8899,2744,0,138406,6087,413832,163602,729017,458,351728,13492],
+      [11009,0,0,0,0,0,25260,1517,85,513,690,78],
+      [2885,0,0,0,12028,0,44013,1880,8677,47,209615,38487],
+      [10346,12709,11,0,1541,17,6313,1830,1114,740,287185,36283]
+    ],
+    "topology_undirected": {"betti": [2,0,0], "cell_counts": [12,48,114]},
+    "topology_directed": {"betti": [2,0,0], "cell_counts": [12,96,684]},
+    "comment": "Cluster-to-cluster total directed synapse weight. Two-component split (β_0 = 2) reflects the orphaned C05 (polarization not assigned in our type subset) and connected remainder."
+  },
+  "chirality": {
+    "source": "Original analysis: Gauss linking integrals on neuron polylines connecting neighbouring hex columns, with anchor-permutation null. Knot-theoretic invariants on connectomes are uncommon in the literature; we have not located a prior published Gauss-linking measurement on the optic lobe specifically.",
+    "by_orientation": {
+      "+z": {
+        "(1,0)": {"n": 853, "real_mean": -0.265, "real_abs_mean": 0.331, "real_frac_pos": 0.163, "null_mean_of_means": -0.00102, "null_std_of_means": 0.00792, "z": -33.26},
+        "(0,1)": {"n": 855, "real_mean": 0.144, "real_abs_mean": 0.176, "real_frac_pos": 0.834, "null_mean_of_means": -0.00158, "null_std_of_means": 0.00313, "z": 46.60},
+        "(1,-1)": {"n": 826, "real_mean": 0.105, "real_abs_mean": 0.424, "real_frac_pos": 0.619, "null_mean_of_means": -0.00162, "null_std_of_means": 0.00394, "z": 27.03}
+      },
+      "+y": {
+        "(1,0)": {"n": 853, "real_mean": -0.154, "real_abs_mean": 0.186, "real_frac_pos": 0.308, "null_mean_of_means": 0.00075, "null_std_of_means": 0.00324, "z": -47.82},
+        "(0,1)": {"n": 855, "real_mean": 0.061, "real_abs_mean": 0.094, "real_frac_pos": 0.698, "null_mean_of_means": 0.00152, "null_std_of_means": 0.00515, "z": 11.52},
+        "(1,-1)": {"n": 826, "real_mean": 0.048, "real_abs_mean": 0.238, "real_frac_pos": 0.590, "null_mean_of_means": 0.00060, "null_std_of_means": 0.00176, "z": 26.86}
+      },
+      "+x": {
+        "(1,0)": {"n": 853, "real_mean": -0.264, "real_abs_mean": 0.320, "real_frac_pos": 0.163, "null_mean_of_means": 0.000025, "null_std_of_means": 0.00787, "z": -33.62},
+        "(0,1)": {"n": 855, "real_mean": 0.132, "real_abs_mean": 0.164, "real_frac_pos": 0.840, "null_mean_of_means": -0.00049, "null_std_of_means": 0.00643, "z": 20.56},
+        "(1,-1)": {"n": 826, "real_mean": 0.072, "real_abs_mean": 0.468, "real_frac_pos": 0.604, "null_mean_of_means": -0.00045, "null_std_of_means": 0.00474, "z": 15.39}
+      },
+      "Tm_only": {
+        "(1,0)": {"n": 853, "real_mean": 0.167, "real_abs_mean": 0.372, "real_frac_pos": 0.774, "null_mean_of_means": -0.00361, "null_std_of_means": 0.00441, "z": 38.63},
+        "(0,1)": {"n": 855, "real_mean": -0.238, "real_abs_mean": 0.394, "real_frac_pos": 0.202, "null_mean_of_means": -0.00228, "null_std_of_means": 0.01062, "z": -22.24},
+        "(1,-1)": {"n": 826, "real_mean": -0.011, "real_abs_mean": 0.281, "real_frac_pos": 0.481, "null_mean_of_means": -0.00246, "null_std_of_means": 0.00515, "z": -1.62}
+      }
+    },
+    "headline_z_range": "9 to 47σ across orientations × hex axes",
+    "note": "Gauss integrals are dimensionless. Negative mean = consistent left-handed chirality; positive = right-handed. The null permutes column anchors keeping all topological structure, so non-zero mean is unambiguously geometric."
+  },
+  "neural_superposition": {
+    "source": "Heisenberg & Wolf 1984 Ch 1: each lamina cartridge receives R1-R6 axes from 7 adjacent ommatidia (neural superposition). Predicts 6 R-inputs per L1.",
+    "n_L1": 892,
+    "n_R1R6": 2265,
+    "R_per_L1_mean": 4.28,
+    "R_per_L1_median": 5.0,
+    "R_per_L1_std": 1.93,
+    "predicted": 6,
+    "fraction_with_6_or_7": 0.356,
+    "distribution": {"1": 59, "2": 59, "3": 59, "4": 67, "5": 74, "6": 165, "7": 16, "8": 3, "9": 4, "10": 1, "11": 1}
+  },
+  "methods_comparison": {
+    "source": "Five-method comparison on 13,267 neurons × 274,200 edges; clusterings benchmarked against the 892-column hex grid (ground truth = column membership).",
+    "n_neurons": 13267,
+    "n_columns": 892,
+    "n_edges": 274200,
+    "methods": {
+      "single_linkage":  {"param": "w≥39",                         "ari": 0.451, "nmi": 0.902, "n_clusters": 4797, "largest": 43},
+      "leiden":          {"param": "res=50",                       "ari": 0.844, "nmi": 0.975, "n_clusters": 813,  "largest": 58, "sec": 1.19},
+      "spectral":        {"param": "K=892",                        "ari": 0.919, "nmi": 0.981, "n_clusters": 892,  "largest": 30, "sec": 1229.7},
+      "jaccard":         {"param": "K=892",                        "ari": 0.788, "nmi": 0.953, "n_clusters": 892,  "largest": 43, "sec": 4.05},
+      "mapper":          {"param": "filter_dim=2, cubes=40, overlap=0.5", "ari": 0.030, "nmi": 0.822, "n_clusters": 10110, "largest": 12}
+    }
+  },
+  "subtype_homology": {
+    "Dm3": {
+      "Dm3a": {"betti": [21,233,0], "n_nodes": 601, "n_edges_sym": 2016},
+      "Dm3b": {"betti": [8,405,0], "n_nodes": 571, "n_edges_sym": 2798},
+      "Dm3c": {"betti": [28,134,0], "n_nodes": 401, "n_edges_sym": 1256},
+      "combined": {"betti": [1,397,10651], "n_nodes": 1573, "n_edges_sym": 61826}
+    },
+    "T4T5": {
+      "T4a": {"betti": [1,2,7],   "n_nodes": 849, "n_edges_sym": 10022},
+      "T4b": {"betti": [1,9,12],  "n_nodes": 846, "n_edges_sym": 10140},
+      "T4c": {"betti": [1,32,18], "n_nodes": 883, "n_edges_sym": 9480},
+      "T4d": {"betti": [1,26,12], "n_nodes": 859, "n_edges_sym": 9134},
+      "T5a": {"betti": [1,18,19], "n_nodes": 838, "n_edges_sym": 9174},
+      "T5b": {"betti": [1,22,28], "n_nodes": 852, "n_edges_sym": 10498},
+      "T5c": {"betti": [1,41,23], "n_nodes": 858, "n_edges_sym": 9710},
+      "T5d": {"betti": [1,33,23], "n_nodes": 808, "n_edges_sym": 8836},
+      "T4_all":      {"betti": [1,929,1032], "n_nodes": 3437, "n_edges_sym": 59836},
+      "T5_all":      {"betti": [1,694,1324], "n_nodes": 3356, "n_edges_sym": 59294},
+      "T4_plus_T5":  {"betti": [1,2160,5121],"n_nodes": 6793, "n_edges_sym": 160166}
+    }
+  },
+  "hubs": {
+    "source": "Per-cell partner-cluster Shannon entropy (low entropy = single-cluster cell; high = multi-cluster hub). Matsliah 2024 highlights Mi4 and TmY5a as multi-cluster hubs explicitly.",
+    "selected_perplexities": {
+      "CT1": {"perplexity": 1.38, "primary": "C15_motion_T4T5", "primary_frac": 0.923},
+      "Dm11": {"perplexity": 1.93, "primary": "C07_luminance", "primary_frac": 0.845},
+      "Dm3a": {"perplexity": 2.72, "primary": "C02_form", "primary_frac": 0.722},
+      "Dm3b": {"perplexity": 2.95, "primary": "C02_form", "primary_frac": 0.674},
+      "Dm3c": {"perplexity": 3.41, "primary": "C02_form", "primary_frac": 0.606},
+      "Dm12": {"perplexity": 2.83, "primary": "C07_luminance", "primary_frac": 0.703},
+      "Dm2": {"perplexity": 3.62, "primary": "C07_luminance", "primary_frac": 0.448},
+      "Dm20": {"perplexity": 3.71, "primary": "C08_centrifugal_feedback", "primary_frac": 0.502},
+      "Dm10": {"perplexity": 4.23, "primary": "C01_colour_main", "primary_frac": 0.332},
+      "Dm4":  {"perplexity": 2.53, "primary": "C07_luminance", "primary_frac": 0.487},
+      "C2":   {"perplexity": 3.48, "primary": "C11_ON", "primary_frac": 0.491},
+      "C3":   {"perplexity": 4.13, "primary": "C10_OFF", "primary_frac": 0.599}
+    }
+  },
+  "citations": {
+    "reimann_2017": "Reimann MW et al. (2017). Cliques of Neurons Bound into Cavities Provide a Missing Link between Structure and Function. Front. Comput. Neurosci. 11:48. — Directed flag complex methodology; net directionality Dr(G) = Σ sd(v)².",
+    "braitenberg_1974": "Braitenberg V & Debbage P (1974). A regular net of reciprocal synapses in the visual system of the fly, Musca domestica. J. Comp. Physiol. 90:25-31. — Three L4 collaterals per cartridge along −z, +y, −x form a complete reciprocal K_3.",
+    "strausfeld_1973": "Strausfeld NJ & Campos-Ortega JA (1973). The L4 monopolar neurone: A substrate for lateral interaction in the visual system of the fly Musca domestica. Brain Res. 59:97-117.",
+    "heisenberg_1984": "Heisenberg M & Wolf R (1984). Vision in Drosophila. Studies of Brain Function Vol 12, Springer. — \"two-dimensional neural crystal\" (Benzer 1973, p 25); \"isomorphic sets\" (Strausfeld 1979); \"neurocrystallinity of the visual neuropil … is brought about by a set of repeating developmental processes\" (p 69).",
+    "matsliah_2024": "Matsliah A et al. (2024). Neuronal parts list and wiring diagram for a visual system. Nature 634:166-180. — 732 intrinsic cell types in 25 type families; 16 functional clusters (C01-C16) per Extended Data Fig. 11a.",
+    "seung_2024": "Seung HS (2024). Predicting visual function by interpreting a neuronal wiring diagram. Nature 634:113-123. — Form-circuit predictions: Dm3 cross-orientation suppression (Test 1) and TmY iso-orientation excitation (Test 2). Axis labelling Dm3p/q/v + TmY4/TmY9q/TmY9q⊥ in Extended Data Fig. 6.",
+    "dorkenwald_2024": "Dorkenwald S et al. (2024). Neuronal wiring diagram of an adult brain. Nature 634:124-138. — FlyWire flagship; 139,255 neurons; 54.5M synapses; FEMALE adult.",
+    "lappalainen_2024": "Lappalainen JK et al. (2024). Connectome-constrained networks predict neural activity across the fly visual system. Nature 634:1132-1140. — Connectome-constrained deep mechanistic networks (DMNs) on Janelia FIB-19/FIB-25 (right MALE OL), the predecessor lineage of optic-lobe:v1.1. 64 cell types, 45,669 neurons, 1,513,231 connections, 734 free parameters.",
+    "nern_2025": "Nern A et al. (2025). Connectome-driven neural inventory of a complete visual system. Nature (s41586-025-08746-0). — Janelia FlyEM optic-lobe:v1.1 dataset; right MALE OL; the dataset this analysis uses.",
+    "tanaka_2025": "Tanaka R & Portugues R (2025). On analogies in vertebrate and insect visual systems. Nat. Rev. Neurosci. 26:456-475. — Vertebrate-insect convergence framework: OPL↔lamina, BCs↔L cells, RGCs↔Tm/TmY/T, SACs↔T4/T5.",
+    "borst_1989": "Borst A & Egelhaaf M (1989). Principles of visual motion detection. Trends Neurosci. 12:297-306. — Reichardt correlator R = x₁(t−ε)·x₂(t) − x₁(t)·x₂(t−ε); HS-cell as integrating detector.",
+    "land_1997": "Land MF (1997). Visual Acuity in Insects. Annu. Rev. Entomol. 42:147-177. — ν_s = 1/(2Δφ); Δρ = √((d/f)² + (λ/D)²); Drosophila Δφ ≈ 5°."
+  }
+}

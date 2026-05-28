@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# Logs
+*.log
+server.runlog
+
+# Claude tooling
+.claude_traffic*
+
+# Raw inputs that aren't served by the page (they're only needed to
+# regenerate the precomputed JSON files via the build_*.py scripts).
+1OHG.pdb1
+1OHG.pdb1.gz
+1D3Z.mr
+1D3Z.pdb
+1UBQ.pdb
+
+# Alternative precomputed datasets not referenced by index.html.
+# Keep the canonical ones (hk97_data.json, menger_data.json) — drop the
+# variants with different N / threshold parameters.
+menger_data.N200k.json
+menger_data.N600k.thresh010.json
+hk97_data.r30.json
+
+# One-off analysis outputs not used by the page
+focused_results.json
+sweep_results.json
+
+# Misc cruft
+27
+files.zip
+precomputed/
+
+# OS
+.DS_Store
+Thumbs.db
