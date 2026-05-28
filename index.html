@@ -18160,12 +18160,20 @@ function applyManifold(key) {
   const settings = MANIFOLD_SETTINGS[state.manifoldKey];
   if (!settings) return;
 
-  // Eagerly hide the ubiquitin-XL-MS section unless the new key is the XL-MS
-  // one — otherwise an early-return from a different dedicated branch
-  // (g25 / hk97 / menger / sierpinski) below would leave both sections visible.
-  if (!settings.is_ubiquitin_xlms) {
-    hideXlmsLayout();
-  }
+  // Eagerly hide every dedicated precomputed-section layout that isn't the
+  // newly-selected one. The cascade of `if (matches) { activate(); return; }`
+  // blocks below short-circuits before the hide-for-this-key calls in
+  // sibling blocks ever run — so without these eager-hides, switching from
+  // (say) optic_lobe to foam would leave the optic-lobe section visible
+  // underneath the foam section.
+  if (!settings.is_ubiquitin_xlms) hideXlmsLayout();
+  if (!settings.is_g25_full)       hideG25Layout();
+  if (!settings.is_hk97_full)      hideHK97Layout();
+  if (!settings.is_menger_full)    hideMengerLayout();
+  if (!settings.is_sierpinski_full) hideSierpinskiLayout();
+  if (!settings.is_packing_full)   hidePackingLayout();
+  if (!settings.is_foam_full)      hideFoamLayout();
+  if (!settings.is_optic_lobe_full) hideOpticLobeLayout();
 
   // Global25 precomputed full-data view: swap to the dedicated section and
   // skip the standard /sample + /compute flow (the data is already cooked).
